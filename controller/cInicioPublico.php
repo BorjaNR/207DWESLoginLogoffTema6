@@ -16,7 +16,7 @@ if (isset($_REQUEST['login'])) {
     header('Location: indexLoginLogoffTema6.php');
     exit();
 }
-
+/*
 // Comprobamos si se ha pulsado un botón para cambiar el idioma
 if (isset($_REQUEST['espanol'])) {
     // Cambiamos la cookie al idioma seleccionado y refrescamos la página
@@ -34,5 +34,5 @@ if (isset($_REQUEST['espanol'])) {
     header('Location: indexLoginLogoffTema6.php');
     exit();
 }
-
+*/
 require_once $view['layout'];

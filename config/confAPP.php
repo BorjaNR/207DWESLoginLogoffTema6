@@ -16,13 +16,8 @@ $controller = [
     'inicioPublico' => 'controller/cInicioPublico.php',
     'login' => 'controller/cLogin.php',
     'inicioPrivado' => 'controller/cInicioPrivado.php',
-    'rss' => 'controller/cRSS.php',
-    'registro' => 'controller/cRegistro.php',
-    'miCuenta' => 'controller/cMiCuenta.php',
-    'borrarCuenta' => 'controller/cBorrarCuenta.php',
-    'wip' => 'controller/cWIP.php',
-    'error' => 'controller/cError.php',
-    'detalle' => 'controller/cDetalle.php'
+    'detalle' => 'controller/cDetalle.php',
+    'wip' => 'controller/cWip.php'
 ];
 
 $view = [
@@ -30,11 +25,6 @@ $view = [
     'inicioPublico' => 'view/vInicioPublico.php',
     'login' => 'view/vLogin.php',
     'inicioPrivado' => 'view/vInicioPrivado.php',
-    'rss' => 'view/vRSS.php',
-    'registro' => 'view/vRegistro.php',
-    'miCuenta' => 'view/vMiCuenta.php',
-    'borrarCuenta' => 'view/vBorrarCuenta.php',
-    'wip' => 'view/vWIP.php',
-    'error' => 'view/vError.php',
-    'detalle' => 'view/vDetalle.php'
+    'detalle' => 'view/vDetalle.php',
+    'wip' => 'view/vWip.php'
 ];

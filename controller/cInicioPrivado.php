@@ -26,6 +26,14 @@ if (isset($_REQUEST['detalle'])) {
     exit();
 }
 
+// Ir a Wip
+if (isset($_REQUEST['mto_departamentos'])) {
+    $_SESSION['paginaActiva'] = 'wip';
+    $_SESSION['paginaAnterior'] =  $_SESSION['paginaActiva'];
+    header('Location: indexLoginLogoffTema6.php');
+    exit();
+}
+
 $bienvenida = "Bienvenido, {$_SESSION['user207DWESLoginLogout']->getdescUsuario()}.<br>";
 $numConexiones = "Esta es tu {$_SESSION['user207DWESLoginLogout']->getnumAcceso()} vez conectándote.<br>";
 if ($_SESSION['user207DWESLoginLogout']->getnumAcceso() == 1) {
