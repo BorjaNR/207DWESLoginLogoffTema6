@@ -7,6 +7,7 @@
  */
 //Si se intenta acceder a la pagina sin iniciar sesion redirige a la pagina de inicio de la aplicación
 if (empty($_SESSION['user207DWESLoginLogout'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaActiva'];
     // Redirige a la página de inicio
     $_SESSION['paginaActiva'] = 'inicioPublico';
     header('Location: indexLoginLogoffTema6.php');
@@ -21,6 +22,7 @@ if (isset($_REQUEST['cerrar_sesion'])) {
 
 // Ir a detalle al pulsar el boton
 if (isset($_REQUEST['detalle'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaActiva'];
     $_SESSION['paginaActiva'] = 'detalle';
     header('Location: indexLoginLogoffTema6.php');
     exit();
@@ -28,9 +30,16 @@ if (isset($_REQUEST['detalle'])) {
 
 // Ir a Wip
 if (isset($_REQUEST['mto_departamentos'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaActiva'];
     $_SESSION['paginaActiva'] = 'wip';
-    $_SESSION['paginaAnterior'] =  $_SESSION['paginaActiva'];
     header('Location: indexLoginLogoffTema6.php');
+    exit();
+}
+
+// Ir a Error
+if (isset($_REQUEST['error'])) {
+    $consulta = "SELECT * FROM T03_Administracion";
+    DBPDO::ejecutaConsulta($consulta);
     exit();
 }
 

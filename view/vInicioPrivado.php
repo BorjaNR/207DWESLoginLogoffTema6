@@ -16,4 +16,5 @@ echo ''. $aInicioPrivado['ultimaConexion'] .'</p>';
     <input class="btn btn-primary d-block"" type="submit" name="cerrar_sesion" value="Cerrar Sesión">
     <input class="btn btn-primary d-block" style="margin-top: 10px" type="submit" name="detalle" value="Detalle">
     <input class="btn btn-primary d-block" style="margin-top: 10px" type="submit" name="mto_departamentos" value="Mto. Departamentos">
+    <input class="btn btn-primary d-block" style="margin-top: 10px" type="submit" name="error" value="Error">
 </form>   

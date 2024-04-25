@@ -19,6 +19,7 @@ class DBPDO implements DB {
             return $consultaPreparada;
             // Código que se ejecuta si hay algún error
         } catch (PDOException $excepcion) {
+            $_SESSION['paginaAnterior'] = $_SESSION['paginaActiva'];
             $_SESSION['paginaActiva'] = 'error';
             $_SESSION['error'] = new ErrorApp($excepcion->getCode(), $excepcion->getMessage(), $excepcion->getFile(), $excepcion->getLine());
             header('Location:indexLoginLogoffTema6.php');

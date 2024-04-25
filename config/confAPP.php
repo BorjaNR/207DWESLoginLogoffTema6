@@ -17,7 +17,8 @@ $controller = [
     'login' => 'controller/cLogin.php',
     'inicioPrivado' => 'controller/cInicioPrivado.php',
     'detalle' => 'controller/cDetalle.php',
-    'wip' => 'controller/cWip.php'
+    'wip' => 'controller/cWip.php',
+    'error' => 'controller/cError.php'
 ];
 
 $view = [
@@ -26,5 +27,6 @@ $view = [
     'login' => 'view/vLogin.php',
     'inicioPrivado' => 'view/vInicioPrivado.php',
     'detalle' => 'view/vDetalle.php',
-    'wip' => 'view/vWip.php'
+    'wip' => 'view/vWip.php',
+    'error' => 'view/vError.php'
 ];
