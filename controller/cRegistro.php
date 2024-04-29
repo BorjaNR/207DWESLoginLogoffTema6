@@ -39,6 +39,17 @@ if (isset($_REQUEST['enviar'])) {
     $aErrores['T01_Password'] = validacionFormularios::validarPassword($_REQUEST['T01_Password'], 8, 3, 1, 1);
     $aErrores['repetirPassword'] = validacionFormularios::validarPassword($_REQUEST['repetirPassword'], 8, 3, 1, 1);
     
+    //Comprobamos si ya existe un usuario con ese codigo
+    if(UsuarioPDO::comprobarCodUsuario($codUsuario)){
+        $aErrores['T01_CodUsuario'] = "El usuario ya existe";
+    }
+    
+    // Comprobamos si son distintas las contraseñas y cargamos un mensaje de error
+    if ($_REQUEST['T01_Password'] != $_REQUEST['repetirPassword']) {
+        $aErrores['T01_Password'] = "Las contraseñas no coinciden.";
+        $aErrores['repetirPassword'] = "Las contraseñas no coinciden.";
+    }
+    
     // Recorre aErrores para ver si hay alguno
     foreach ($aErrores as $campo => $valor) {
         if ($valor != null) {
@@ -53,8 +64,11 @@ if (isset($_REQUEST['enviar'])) {
 
 //Tratamiento del formulario
 if ($entradaOK) {
-    // Actualizamos la fecha y hora de la última conexión
-    $oUsuarioActivo = UsuarioPDO::registrarUltimaConexion($oUsuarioActivo);
+    //Respuestas del formulario
+    $aRespuestas['T01_CodUsuario'] = $_REQUEST['T01_CodUsuario'];
+    $aRespuestas['T01_DescUsuario'] = $_REQUEST['T01_DescUsuario'];
+    $aRespuestas['T01_Password'] = $_REQUEST['T01_Password'];
+    $aRespuestas['repetirPassword'] = $_REQUEST['repetirPassword'];
     // Configuramos sesiones para almacenar la información del usuario
     //Redireccionamos a el inicio privado
     $_SESSION['user207DWESLoginLogout'] = $oUsuarioActivo;

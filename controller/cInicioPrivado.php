@@ -36,6 +36,14 @@ if (isset($_REQUEST['mto_departamentos'])) {
     exit();
 }
 
+// Ir a Wip
+if (isset($_REQUEST['mi_cuenta'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaActiva'];
+    $_SESSION['paginaActiva'] = 'wip';
+    header('Location: indexLoginLogoffTema6.php');
+    exit();
+}
+
 // Ir a Error
 if (isset($_REQUEST['error'])) {
     $consulta = "SELECT * FROM T03_Administracion";
@@ -43,11 +51,11 @@ if (isset($_REQUEST['error'])) {
     exit();
 }
 
-// Meter el mensaje en un array
+//Construimos un array con los datos que necesita la vista
 $avInicioPrivado = [
     'descUsuario' =>  $_SESSION['user207DWESLoginLogout']->getdescUsuario(),
     'numConexiones' => $_SESSION['user207DWESLoginLogout']->getnumAcceso(),
-    'ultimaConexionAnterior' => $avInicioPrivado['ultimaConexionAnterior'] = $_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior()
+    'ultimaConexionAnterior' => $_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior()
 ];
 
 require_once $view['layout'];

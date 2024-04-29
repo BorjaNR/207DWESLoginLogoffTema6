@@ -16,5 +16,6 @@
         <input type="password" class="form-control bg-warning" name="pass" value="<?php echo (isset($_REQUEST['pass']) ? $_REQUEST['pass'] : ''); ?>">
     </div>
     <input class="btn btn-primary" name="enviar" type="submit" value="Inciar Sesion">
-    <input class="btn btn-primary" name="volver" type="submit" value="Volver">
+    <input class="btn btn-error" name="volver" type="submit" value="Volver">
+    <input class="btn btn-primary" name="registrarse" type="submit" value="Registrarse">
 </form>
