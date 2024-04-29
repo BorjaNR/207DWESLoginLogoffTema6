@@ -49,9 +49,7 @@ $avInicioPrivado = [
     'numConexiones' => $_SESSION['user207DWESLoginLogout']->getnumAcceso(),
     'ultimaConexionAnterior' => null
 ];
-if ($_SESSION['user207DWESLoginLogout']->getnumAcceso() == 1) {
-    $avInicioPrivado['ultimaConexionAnterior'] = null;
-} else {
+if ($_SESSION['user207DWESLoginLogout']->getnumAcceso() != 1) {
     $avInicioPrivado['ultimaConexionAnterior'] = $_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior();
 }
 
