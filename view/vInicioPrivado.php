@@ -1,3 +1,4 @@
+<h1 class="text-secondary">Inicio Privado</h1>
 <?php
 /**
  * @author Borja Nuñez Refoyo
@@ -6,10 +7,9 @@
  */
 
 //Muestro los mensajes
-
-echo '<p>'.$aInicioPrivado['bienvenida'];
-echo $aInicioPrivado['numConexiones'];
-echo ''. $aInicioPrivado['ultimaConexion'] .'</p>';
+echo '<p>'.$avInicioPrivado['bienvenida'];
+echo $avInicioPrivado['numConexiones'];
+echo ''. $avInicioPrivado['ultimaConexion'] .'</p>';
 ?>
 <img src="webroot/images/ArbolAPP.PNG" alt="Mapeo de la Aplicación">
 <form class="position-absolute top-0 end-0" style="margin-top: 85px; margin-right: 15px" method="post" action="">

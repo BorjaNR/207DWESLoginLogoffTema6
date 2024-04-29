@@ -43,19 +43,16 @@ if (isset($_REQUEST['error'])) {
     exit();
 }
 
-$bienvenida = "Bienvenido, {$_SESSION['user207DWESLoginLogout']->getdescUsuario()}.<br>";
-$numConexiones = "Esta es tu {$_SESSION['user207DWESLoginLogout']->getnumAcceso()} vez conectándote.<br>";
-if ($_SESSION['user207DWESLoginLogout']->getnumAcceso() == 1) {
-    $ultimaConexion = "Esta es la primera vez que te conectas";
-} else {
-    $ultimaConexion = "Te conectaste por última vez {$_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior()}.";
-}
-
 // Meter el mensaje en un array
-$aInicioPrivado = [
-    'bienvenida' => $bienvenida,
-    'numConexiones' => $numConexiones,
-    'ultimaConexion' => $ultimaConexion
+$avInicioPrivado = [
+    'bienvenida' =>  "Bienvenido, {$_SESSION['user207DWESLoginLogout']->getdescUsuario()}.<br>",
+    'numConexiones' => "Esta es tu {$_SESSION['user207DWESLoginLogout']->getnumAcceso()} vez conectándote.<br>",
+    'ultimaConexion' => ""
 ];
+if ($_SESSION['user207DWESLoginLogout']->getnumAcceso() == 1) {
+    $avInicioPrivado['ultimaConexion'] = "Esta es la primera vez que te conectas";
+} else {
+    $avInicioPrivado['ultimaConexion'] = "Te conectaste por última vez {$_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior()}.";
+}
 
 require_once $view['layout'];

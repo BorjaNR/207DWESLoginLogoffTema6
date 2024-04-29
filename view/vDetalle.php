@@ -1,3 +1,4 @@
+<h1 class="text-secondary">Detalle</h1>
 <form class="position-absolute top-0 end-0" style="margin-top: 85px; margin-right: 15px" name="fomrulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <input class="btn btn-primary" name="volver" type="submit" value="Volver">
 </form>

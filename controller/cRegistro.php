@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @author Borja Nuñez Refoyo
+ * @version 2.0 
+ * @since 19/04/2024
+ */
+//Comprobamos si pulsa el boton volver
+if (isset($_REQUEST['volver'])) {
+    // Redirige a la página de inicio
+    $_SESSION['paginaActiva'] = 'inicioPublico';
+    header('Location: indexLoginLogoffTema6.php');
+    exit();
+}
+
+//Creamos e inicializamos las variables imprescindibles para este ejercicio
+$entradaOK = true; //Variable que nos indica que todo va bien
+//Array donde recogemos los mensajes de error
+$aRespuestas = [
+    'T01_CodUsuario' => "",
+    'T01_DescUsuario' => "",
+    'T01_Password' => "",
+    'repetirPassword' => ""
+];
+
+$aErrores = [
+    'T01_CodUsuario' => "",
+    'T01_DescUsuario' => "",
+    'T01_Password' => "",
+    'repetirPassword' => ""
+];
+
+//Cargar valores por defecto en los campos del formulario
+//Para cada campo del formulario: Validar entrada y actuar en consecuencia
+if (isset($_REQUEST['enviar'])) {
+    //Valido los campos
+    $aErrores['T01_CodUsuario'] = validacionFormularios::comprobarAlfabetico($_REQUEST['T01_CodUsuario'], 8, 3, 1);
+    $aErrores['T01_DescUsuario'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['T01_DescUsuario'], 255, 3, 1);
+    $aErrores['T01_Password'] = validacionFormularios::validarPassword($_REQUEST['T01_Password'], 8, 3, 1, 1);
+    $aErrores['repetirPassword'] = validacionFormularios::validarPassword($_REQUEST['repetirPassword'], 8, 3, 1, 1);
+    
+    // Recorre aErrores para ver si hay alguno
+    foreach ($aErrores as $campo => $valor) {
+        if ($valor != null) {
+            $entradaOK = false;
+            // Limpiamos el campo
+            $_REQUEST[$campo] = '';
+        }
+    }
+} else {
+    $entradaOK = false;
+}
+
+//Tratamiento del formulario
+if ($entradaOK) {
+    // Actualizamos la fecha y hora de la última conexión
+    $oUsuarioActivo = UsuarioPDO::registrarUltimaConexion($oUsuarioActivo);
+    // Configuramos sesiones para almacenar la información del usuario
+    //Redireccionamos a el inicio privado
+    $_SESSION['user207DWESLoginLogout'] = $oUsuarioActivo;
+    $_SESSION['paginaActiva'] = 'inicioPrivado';
+    header('Location: indexLoginLogoffTema6.php');
+    exit();
+}
+require_once $view['layout'];
+?>
+
+
+    
