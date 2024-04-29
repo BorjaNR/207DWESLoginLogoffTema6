@@ -8,10 +8,10 @@
 
 //Muestro los mensajes
 echo '<p>Bienvenido, '.$avInicioPrivado['descUsuario'] . '<br>';
-echo 'Esta es tu ' . $avInicioPrivado['numConexiones'] . ' vez conectandote<br>';
 if (is_null($avInicioPrivado['ultimaConexionAnterior'])) {
     echo 'Esta es la primera vez que te conectas </p>';
 } else {
+    echo 'Esta es tu ' . $avInicioPrivado['numConexiones'] . ' vez conectandote<br>';
     echo 'Te conectaste por última vez ' . $avInicioPrivado['ultimaConexionAnterior'] . '</p>';
 }
 ?>

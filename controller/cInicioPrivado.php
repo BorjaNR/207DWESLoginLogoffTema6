@@ -47,10 +47,7 @@ if (isset($_REQUEST['error'])) {
 $avInicioPrivado = [
     'descUsuario' =>  $_SESSION['user207DWESLoginLogout']->getdescUsuario(),
     'numConexiones' => $_SESSION['user207DWESLoginLogout']->getnumAcceso(),
-    'ultimaConexionAnterior' => null
+    'ultimaConexionAnterior' => $avInicioPrivado['ultimaConexionAnterior'] = $_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior()
 ];
-if ($_SESSION['user207DWESLoginLogout']->getnumAcceso() != 1) {
-    $avInicioPrivado['ultimaConexionAnterior'] = $_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior();
-}
 
 require_once $view['layout'];
