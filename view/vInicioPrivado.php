@@ -7,9 +7,13 @@
  */
 
 //Muestro los mensajes
-echo '<p>'.$avInicioPrivado['bienvenida'];
-echo $avInicioPrivado['numConexiones'];
-echo ''. $avInicioPrivado['ultimaConexion'] .'</p>';
+echo '<p>Bienvenido, '.$avInicioPrivado['descUsuario'] . '<br>';
+echo 'Esta es tu ' . $avInicioPrivado['numConexiones'] . ' vez conectandote<br>';
+if (is_null($avInicioPrivado['ultimaConexionAnterior'])) {
+    echo 'Esta es la primera vez que te conectas </p>';
+} else {
+    echo 'Te conectaste por última vez ' . $avInicioPrivado['ultimaConexionAnterior'] . '</p>';
+}
 ?>
 <img src="webroot/images/ArbolAPP.PNG" alt="Mapeo de la Aplicación">
 <form class="position-absolute top-0 end-0" style="margin-top: 85px; margin-right: 15px" method="post" action="">

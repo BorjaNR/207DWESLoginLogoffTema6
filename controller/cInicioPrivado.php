@@ -45,14 +45,14 @@ if (isset($_REQUEST['error'])) {
 
 // Meter el mensaje en un array
 $avInicioPrivado = [
-    'bienvenida' =>  "Bienvenido, {$_SESSION['user207DWESLoginLogout']->getdescUsuario()}.<br>",
-    'numConexiones' => "Esta es tu {$_SESSION['user207DWESLoginLogout']->getnumAcceso()} vez conectándote.<br>",
-    'ultimaConexion' => ""
+    'descUsuario' =>  $_SESSION['user207DWESLoginLogout']->getdescUsuario(),
+    'numConexiones' => $_SESSION['user207DWESLoginLogout']->getnumAcceso(),
+    'ultimaConexionAnterior' => null
 ];
 if ($_SESSION['user207DWESLoginLogout']->getnumAcceso() == 1) {
-    $avInicioPrivado['ultimaConexion'] = "Esta es la primera vez que te conectas";
+    $avInicioPrivado['ultimaConexionAnterior'] = null;
 } else {
-    $avInicioPrivado['ultimaConexion'] = "Te conectaste por última vez {$_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior()}.";
+    $avInicioPrivado['ultimaConexionAnterior'] = $_SESSION['user207DWESLoginLogout']->getfechaHoraUltimaConexionAnterior();
 }
 
 require_once $view['layout'];
