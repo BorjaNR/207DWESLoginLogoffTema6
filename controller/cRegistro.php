@@ -8,7 +8,7 @@
 //Comprobamos si pulsa el boton volver
 if (isset($_REQUEST['volver'])) {
     // Redirige a la página de inicio
-    $_SESSION['paginaActiva'] = 'inicioPublico';
+    $_SESSION['paginaActiva'] = $_SESSION['paginaAnterior'];
     header('Location: indexLoginLogoffTema6.php');
     exit();
 }

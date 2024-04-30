@@ -5,6 +5,7 @@
  * @since 30/04/2024
  */
 ?>
+<h1 class="text-secondary">Registro</h1>
 <form class="w-40 position-absolute top-50 start-50 translate-middle" name="fomrulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div class="mb-3">
         <label class="form-label">Codigo de Usuario</label>
@@ -27,6 +28,6 @@
         <?php echo (!empty($aErrores["repetirPassword"]) ? '<span style="color: red;">' . $aErrores["repetirPassword"] . '</span>' : ''); //Esto es para mostrar el mensaje de error en color rojo  ?>
     </div>
     <input class="btn btn-primary" name="enviar" type="submit" value="Registrarse">
-    <input class="btn btn-primary" name="volver" type="submit" value="Volver">
+    <input class="btn btn-danger" name="volver" type="submit" value="Volver">
 </form>
 
