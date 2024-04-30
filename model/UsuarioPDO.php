@@ -50,17 +50,34 @@ class UsuarioPDO implements UsuarioDB {
         DBPDO::ejecutaConsulta($consultaActualizacionFechaUltimaConexion);
         return $oUsuario;
     }
-    
-     public static function comprobarCodUsuario($codUsuario) {
+
+    public static function validarCodNoExiste($codUsuario) {
+        $oUsuario = null;
         $consultaCodUsuario = <<<CONSULTA
             SELECT * FROM T01_Usuario 
             WHERE T01_CodUsuario = '{$codUsuario}' ;
         CONSULTA;
-            
-        return DBPDO::ejecutaConsulta($consultaCodUsuario)->fetchObject();
+
+        $resultado = DBPDO::ejecutaConsulta($consultaCodUsuario);
+        if ($resultado) {
+            $oResultado = $resultado->fetchObject();
+            if($oResultado){
+                $oUsuario = new Usuario(
+                        $oResultado->T01_CodUsuario,
+                        $oResultado->T01_Password,
+                        $oResultado->T01_DescUsuario,
+                        $oResultado->T01_NumConexiones,
+                        $oResultado->T01_FechaHoraUltimaConexion,
+                        $oResultado->T01_FechaHoraUltimaConexionAnterior = null,
+                        $oResultado->T01_Perfil
+                );
+            }
+        } else {
+            return false;
+        }
+        return $oUsuario;
     }
-    
-    
+
     public static function altaUsuario($codUsuario, $password, $descUsuario) {
         $consultaCrearUsuario = <<<CONSULTA
             INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_NumConexiones, T01_FechaHoraUltimaConexion) 

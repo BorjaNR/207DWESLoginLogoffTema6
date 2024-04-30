@@ -3,7 +3,7 @@
 /**
  * @author Borja Nuñez Refoyo
  * @version 2.0 
- * @since 19/04/2024
+ * @since 29/04/2024
  */
 //Comprobamos si pulsa el boton volver
 if (isset($_REQUEST['volver'])) {
@@ -40,7 +40,7 @@ if (isset($_REQUEST['enviar'])) {
     $aErrores['repetirPassword'] = validacionFormularios::validarPassword($_REQUEST['repetirPassword'], 8, 3, 1, 1);
     
     //Comprobamos si ya existe un usuario con ese codigo
-    if(UsuarioPDO::comprobarCodUsuario($codUsuario)){
+    if(UsuarioPDO::validarCodNoExiste($_REQUEST['T01_CodUsuario'])){
         $aErrores['T01_CodUsuario'] = "El usuario ya existe";
     }
     

@@ -16,7 +16,7 @@ if (isset($_REQUEST['volver'])) {
 // Ir a Wip
 if (isset($_REQUEST['registrarse'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaActiva'];
-    $_SESSION['paginaActiva'] = 'wip';
+    $_SESSION['paginaActiva'] = 'registro';
     header('Location: indexLoginLogoffTema6.php');
     exit();
 }
