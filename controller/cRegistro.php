@@ -69,9 +69,13 @@ if ($entradaOK) {
     $aRespuestas['T01_DescUsuario'] = $_REQUEST['T01_DescUsuario'];
     $aRespuestas['T01_Password'] = $_REQUEST['T01_Password'];
     $aRespuestas['repetirPassword'] = $_REQUEST['repetirPassword'];
+    
+    //Registramos el usuario
+    $oUsuarioRegistrado = UsuarioPDO::altaUsuario($_REQUEST['T01_CodUsuario'], $_REQUEST['T01_Password'], $_REQUEST['T01_DescUsuario']);
+            
     // Configuramos sesiones para almacenar la información del usuario
     //Redireccionamos a el inicio privado
-    $_SESSION['user207DWESLoginLogout'] = $oUsuarioActivo;
+    $_SESSION['user207DWESLoginLogout'] = $oUsuarioRegistrado;
     $_SESSION['paginaActiva'] = 'inicioPrivado';
     header('Location: indexLoginLogoffTema6.php');
     exit();
