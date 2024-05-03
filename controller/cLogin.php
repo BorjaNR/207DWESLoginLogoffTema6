@@ -13,6 +13,14 @@ if (isset($_REQUEST['volver'])) {
     exit();
 }
 
+// Ir a Wip
+if (isset($_REQUEST['registrarse'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaActiva'];
+    $_SESSION['paginaActiva'] = 'registro';
+    header('Location: indexLoginLogoffTema6.php');
+    exit();
+}
+
 //Creamos e inicializamos las variables imprescindibles para este ejercicio
 $entradaOK = true; //Variable que nos indica que todo va bien
 //Array donde recogemos los mensajes de error

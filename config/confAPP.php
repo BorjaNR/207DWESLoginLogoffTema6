@@ -18,7 +18,8 @@ $controller = [
     'inicioPrivado' => 'controller/cInicioPrivado.php',
     'detalle' => 'controller/cDetalle.php',
     'wip' => 'controller/cWip.php',
-    'error' => 'controller/cError.php'
+    'error' => 'controller/cError.php',
+    'registro' => 'controller/cRegistro.php'
 ];
 
 $view = [
@@ -28,5 +29,6 @@ $view = [
     'inicioPrivado' => 'view/vInicioPrivado.php',
     'detalle' => 'view/vDetalle.php',
     'wip' => 'view/vWip.php',
-    'error' => 'view/vError.php'
+    'error' => 'view/vError.php',
+    'registro' => 'view/vRegistro.php'
 ];
